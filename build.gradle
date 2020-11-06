@@ -1,3 +1,5 @@
+import groovy.lang.GroovyObject
+
 plugins {
     id "org.jetbrains.kotlin.jvm" version "1.4.10"
     id "org.jetbrains.kotlin.kapt" version "1.4.10"
@@ -26,7 +28,7 @@ micronaut {
 dependencies {
     kapt("io.micronaut.data:micronaut-data-processor")
     kapt(enforcedPlatform("io.micronaut:micronaut-bom:$micronautVersion"))
-    //kapt("io.micronaut:micronaut-inject-java")
+    kapt("io.micronaut:micronaut-inject-java")
     kapt("io.micronaut:micronaut-validation")
 
     implementation(enforcedPlatform("io.micronaut:micronaut-bom:$micronautVersion"))

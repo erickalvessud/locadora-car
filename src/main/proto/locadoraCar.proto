@@ -2,19 +2,29 @@ syntax = "proto3";
 
 option java_multiple_files = true;
 option java_package = "com.treino";
-option java_outer_classname = "LocadoraCar";
 option objc_class_prefix = "HLW";
+//option java_outer_classname = "LocadoraCar";
 
 package com.treino;
 
-service LocadoraCarService {
-  rpc send (LocadoraCarRequest) returns (LocadoraCarReply) {}
+import "google/api/annotations.proto";
+
+service CarroService {
+  rpc SalvaCarro (SalvaCarroRequest) returns (CarroReply) {
+    option (google.api.http) = {
+      post: "/carros"
+      body: "*"
+    };
+  }
 }
 
-message LocadoraCarRequest {
-  string name = 1;
+message SalvaCarroRequest {
+  string modelo = 1;
+  string marca = 2;
 }
 
-message LocadoraCarReply {
-  string message = 1;
+message CarroReply {
+  string id = 1;
+  string modelo = 2;
+  string marca = 3;
 }

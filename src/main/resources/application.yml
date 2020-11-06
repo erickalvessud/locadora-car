@@ -4,7 +4,7 @@ micronaut:
 #My SQL
 datasources:
   default:
-    url: jdbc:mysql://localhost:3306/livraria?createDatabaseIfNotExist=true&serverTimezone=UTC
+    url: jdbc:mysql://localhost:3306/locadora?createDatabaseIfNotExist=true&serverTimezone=UTC
     username: root
     password: 123456
     dialect: MYSQL
@@ -12,7 +12,7 @@ datasources:
 jpa:
   default:
     entity-scan:
-      packages: 'com.erick.adapters.persistence.entities'
+      packages: 'com.treino.persistence.entities'
     properties:
       hibernate:
         hbm2ddl:

@@ -10,6 +10,13 @@ package com.treino;
 import "google/api/annotations.proto";
 
 service CarroService {
+
+  rpc ConsultaTodos(ConsultaTodosRequest) returns (ConsultaTodosResponse){
+    option (google.api.http) = {
+      get: "/carros"
+    };
+  }
+
   rpc SalvaCarro (SalvaCarroRequest) returns (CarroReply) {
     option (google.api.http) = {
       post: "/carros"
@@ -18,13 +25,29 @@ service CarroService {
   }
 }
 
+message ConsultaTodosRequest {
+  int32 page = 1;
+  int32 size = 2;
+}
+
+message ConsultaTodosResponse {
+  repeated CarroReply carros = 1;
+  Paginacao pageInfo = 2;
+}
+
+message Paginacao {
+  int64 totalPaginas = 1;
+  int64 paginaAtual = 2;
+  int64 tamanhoTotal = 3;
+}
+
 message SalvaCarroRequest {
   string modelo = 1;
   string marca = 2;
 }
 
 message CarroReply {
-  string id = 1;
+  int64 id = 1;
   string modelo = 2;
   string marca = 3;
 }

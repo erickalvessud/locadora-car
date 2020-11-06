@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.treino";
+option java_outer_classname = "LocadoraCar";
+option objc_class_prefix = "HLW";
+
+package com.treino;
+
+service LocadoraCarService {
+  rpc send (LocadoraCarRequest) returns (LocadoraCarReply) {}
+}
+
+message LocadoraCarRequest {
+  string name = 1;
+}
+
+message LocadoraCarReply {
+  string message = 1;
+}

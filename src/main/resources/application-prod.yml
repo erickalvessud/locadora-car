@@ -18,13 +18,13 @@ jpa:
       hibernate:
         hbm2ddl:
           auto: validate
-        show_sql: true
+        show_sql: false
 
 flyway:
   datasources:
     default:
       enabled: true
-      clean-schema: true
+      clean-schema: false
 
 grpc:
   server:

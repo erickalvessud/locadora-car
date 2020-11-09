@@ -24,7 +24,7 @@ flyway:
   datasources:
     default:
       enabled: true
-      clean-schema: true
+      clean-schema: false
 
 grpc:
   server:

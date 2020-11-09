@@ -40,6 +40,7 @@ dependencies {
     implementation("io.micronaut.grpc:micronaut-grpc-server-runtime:$micronautGrpcVersion")
     implementation("io.micronaut.grpc:micronaut-grpc-client-runtime:$micronautGrpcVersion")
     implementation("io.grpc:grpc-kotlin-stub:${grpcKotlinVersion}")
+    implementation("io.micronaut.flyway:micronaut-flyway")
 
     runtimeOnly("ch.qos.logback:logback-classic:1.2.3")
     runtimeOnly("com.fasterxml.jackson.module:jackson-module-kotlin:2.9.8")

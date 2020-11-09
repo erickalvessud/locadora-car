@@ -20,7 +20,7 @@ service CarroService {
   rpc SalvaCarro (SalvaCarroRequest) returns (CarroReply) {
     option (google.api.http) = {
       post: "/carros"
-        body: "*"
+      body: "*"
     };
   }
 }

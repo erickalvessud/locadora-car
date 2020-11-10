@@ -1,6 +1,7 @@
 micronaut:
   application:
     name: locadoraCar
+
 #My SQL
 datasources:
   default:
@@ -22,4 +23,6 @@ flyway:
   datasources:
     default:
       enabled: true
-      clean-schema: true
+      clean-schema: false
+
+grpc.server.health.enabled: true

@@ -1,0 +1,47 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.treino";
+option objc_class_prefix = "HLW";
+option java_outer_classname = "Peca";
+
+package com.treino;
+
+import "google/api/annotations.proto";
+
+service PecaService {
+
+  rpc PecaSave(PecaSaveRequest) returns (PecaResponse) {
+    option (google.api.http) = {
+      post: "/pecas"
+      body: "*"
+    };
+  }
+
+  rpc PecaUpdate(PecaUpdateRequest) returns (PecaResponse) {
+    option (google.api.http) = {
+      put: "/pecas/{id}"
+      body: "*"
+    };
+  }
+
+}
+
+message PecaUpdateRequest {
+  int64 id = 1;
+  string descricao = 2;
+  double valor = 3;
+}
+
+message PecaSaveRequest {
+  string descricao = 1;
+  double valor = 2;
+}
+
+message PecaResponse {
+  int64 id = 1;
+  string descricao = 2;
+  double valor = 3;
+  string createdAt = 4;
+  string updatedAt = 5;
+}

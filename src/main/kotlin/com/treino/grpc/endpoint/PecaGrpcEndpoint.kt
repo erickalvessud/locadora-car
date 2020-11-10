@@ -1,14 +1,11 @@
 package com.treino.grpc.endpoint
 
-import com.treino.CarroServiceGrpcKt
-import com.treino.PecaResponse
-import com.treino.PecaSaveRequest
-import com.treino.PecaUpdateRequest
+import com.treino.*
 import com.treino.service.PecaService
 import javax.inject.Singleton
 
 @Singleton
-class PecaGrpcEndpoint(private val pecaService: PecaService) : CarroServiceGrpcKt.CarroServiceCoroutineImplBase() {
+class PecaGrpcEndpoint(private val pecaService: PecaService) : PecaServiceGrpcKt.PecaServiceCoroutineImplBase() {
 
     override suspend fun pecaSave(request: PecaSaveRequest): PecaResponse {
 

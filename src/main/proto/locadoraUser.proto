@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.treino";
+option objc_class_prefix = "HLW";
+//option java_outer_classname = "LocadoraCar";
+
+package com.treino;
+
+import "google/api/annotations.proto";
+
+service UserService {
+
+  rpc ConsultaTodosUser(ConsultaTodosUsersRequest) returns (ConsultaTodosUsersResponse){
+    option (google.api.http) = {
+      get: "/users"
+    };
+  }
+
+  rpc SalvaUser (SalvaUserRequest) returns (UserReply) {
+    option (google.api.http) = {
+      post: "/users"
+      body: "*"
+    };
+  }
+}
+
+message ConsultaTodosUsersRequest {
+  int32 page = 1;
+  int32 size = 2;
+}
+
+message ConsultaTodosUsersResponse {
+  repeated UserReply users = 1;
+  PaginacaoUsers pageInfo = 2;
+}
+
+message SalvaUserRequest {
+  string nome = 1;
+  int64 idade = 2;
+  string genero = 3;
+}
+
+message UserReply {
+  int64 id = 1;
+  string nome = 2;
+  int64 idade = 3;
+  string genero = 4;
+}
+
+message PaginacaoUsers {
+  int64 totalPaginas = 1;
+  int64 paginaAtual = 2;
+  int64 tamanhoTotal = 3;
+}

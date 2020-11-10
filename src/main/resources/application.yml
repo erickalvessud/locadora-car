@@ -1,6 +1,7 @@
 micronaut:
   application:
     name: locadoraCar
+
 #My SQL
 datasources:
   default:
@@ -16,5 +17,12 @@ jpa:
     properties:
       hibernate:
         hbm2ddl:
-          auto: create
+          auto: none
         show_sql: true
+flyway:
+  datasources:
+    default:
+      enabled: true
+      clean-schema: false
+
+grpc.server.health.enabled: true

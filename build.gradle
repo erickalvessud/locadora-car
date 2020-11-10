@@ -58,6 +58,7 @@ dependencies {
     implementation("io.micronaut.sql:micronaut-jdbc-hikari")
     implementation("io.micronaut.data:micronaut-data-hibernate-jpa")
     runtimeOnly("mysql:mysql-connector-java")
+    runtimeOnly("io.micronaut:micronaut-management")
 }
 
 mainClassName = "com.treino.ApplicationKt"

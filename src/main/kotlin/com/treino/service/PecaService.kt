@@ -1,33 +1,44 @@
 package com.treino.service
 
+import com.treino.PecaRequest
 import com.treino.PecaResponse
-import com.treino.PecaSaveRequest
-import com.treino.PecaUpdateRequest
+import com.treino.persistence.dto.PecaDto
 import com.treino.persistence.entities.PecaEntity
 import com.treino.persistence.repositories.PecaRepository
+import com.treino.persistence.transformer.PecaDtoTransformer
+import com.treino.persistence.transformer.PecaProtoTransformer
 import javax.inject.Singleton
+import javax.transaction.Transactional
+import kotlin.streams.toList
 
 @Singleton
-class PecaService(private val pecaRepository: PecaRepository) {
+open class PecaService(
+        private var pecaDtoTransformer: PecaDtoTransformer,
+        private var pecaProtoTransformer: PecaProtoTransformer,
+        private var pecaRepository: PecaRepository
+) {
 
-    fun save(request: PecaSaveRequest): PecaResponse {
+    @Transactional
+    open fun save(request: PecaRequest): PecaResponse {
 
-        var pecaEntity = PecaEntity(request.descricao, request.valor)
-        pecaEntity = pecaRepository.saveAndFlush(pecaEntity)
+        val pecaEntity: PecaEntity = pecaRepository.saveAndFlush(pecaProtoTransformer.toDomain(request))
 
-        return PecaResponse.newBuilder()
-                .setId(pecaEntity.id!!)
-                .setDescricao(pecaEntity.descricao)
-                .setValor(pecaEntity.valor)
-                .setCreatedAt(pecaEntity.createdAt.toString())
-                .setUpdatedAt(pecaEntity.updatedAt.toString())
-                .build();
+        return pecaProtoTransformer.toResponse(pecaEntity)
     }
 
-    fun save(request: PecaUpdateRequest): PecaResponse {
+    @Transactional
+    open fun save(dto: PecaDto): PecaDto {
+        val entity: PecaEntity = pecaRepository.save(pecaDtoTransformer.toDomain(dto))
 
-        // TODO - Implementar
-
-        return PecaResponse.newBuilder().build();
+        return pecaDtoTransformer.toDto(entity)
     }
+
+    fun findAll(): List<PecaDto>? {
+
+        return pecaRepository.findAll()
+                .stream()
+                .map { peca -> pecaDtoTransformer.toDto(peca) }
+                .toList()
+    }
+
 }

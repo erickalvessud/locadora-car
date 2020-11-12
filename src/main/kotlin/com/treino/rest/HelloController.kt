@@ -15,4 +15,11 @@ class HelloController {
 
         return HttpResponse.ok("Anonymous Access");
     }
+
+    @Produces(MediaType.TEXT_PLAIN)
+    @Get("/test")
+    fun test(): HttpResponse<String>? {
+
+        return HttpResponse.ok("Test Access");
+    }
 }

@@ -7,13 +7,15 @@ import javax.persistence.*
 
 @Entity
 @Table(name = "pecas")
-class PecaEntity(
+data class PecaEntity(
         @Column(name = "descricao", length = 100)
         var descricao: String?,
 
         @Column(name = "valor")
         var valor: Double
 ) {
+
+    constructor() : this(null, 0.0)
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

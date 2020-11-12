@@ -21,7 +21,7 @@ class CarroService (private val carroRepository: CarroRepository){
                             CarroReply.newBuilder()
                             .setId(c.id!!)
                             .setModelo(c.modelo)
-                            .setCor(c.cor)
+                            .setCor(c.cor + " bilhante")
                             .setMarca(c.marca)
                             .setPlaca(c.placa)
                             .setValorDiaria(c.valorDiaria)

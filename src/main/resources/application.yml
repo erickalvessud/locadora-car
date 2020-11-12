@@ -1,3 +1,6 @@
 micronaut:
   application:
     name: locadoraCar
+jackson:
+  serialization:
+    writeDatesAsTimestamps: false

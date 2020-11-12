@@ -11,14 +11,21 @@ import "google/api/annotations.proto";
 
 service PecaService {
 
-  rpc PecaSave(PecaSaveRequest) returns (PecaResponse) {
+  rpc PecaList(PecaRequest) returns (PecaResponse) {
+    option (google.api.http) = {
+      get: "/pecas"
+      body: "*"
+    };
+  }
+
+  rpc PecaSave(PecaRequest) returns (PecaResponse) {
     option (google.api.http) = {
       post: "/pecas"
       body: "*"
     };
   }
 
-  rpc PecaUpdate(PecaUpdateRequest) returns (PecaResponse) {
+  rpc PecaUpdate(PecaRequest) returns (PecaResponse) {
     option (google.api.http) = {
       put: "/pecas/{id}"
       body: "*"
@@ -27,15 +34,10 @@ service PecaService {
 
 }
 
-message PecaUpdateRequest {
+message PecaRequest {
   int64 id = 1;
   string descricao = 2;
   double valor = 3;
-}
-
-message PecaSaveRequest {
-  string descricao = 1;
-  double valor = 2;
 }
 
 message PecaResponse {

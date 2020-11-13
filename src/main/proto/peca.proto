@@ -11,21 +11,21 @@ import "google/api/annotations.proto";
 
 service PecaService {
 
-  rpc PecaList(PecaRequest) returns (PecaResponse) {
+  rpc List(PecaRequest) returns (PecaResponse) {
     option (google.api.http) = {
       get: "/pecas"
       body: "*"
     };
   }
 
-  rpc PecaSave(PecaRequest) returns (PecaResponse) {
+  rpc Save(PecaRequest) returns (PecaResponse) {
     option (google.api.http) = {
       post: "/pecas"
       body: "*"
     };
   }
 
-  rpc PecaUpdate(PecaRequest) returns (PecaResponse) {
+  rpc Update(PecaRequest) returns (PecaResponse) {
     option (google.api.http) = {
       put: "/pecas/{id}"
       body: "*"

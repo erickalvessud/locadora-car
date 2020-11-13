@@ -20,7 +20,6 @@ open class PecaService(
 
     @Transactional
     open fun save(request: PecaRequest): PecaResponse {
-
         val pecaEntity: PecaEntity = pecaRepository.saveAndFlush(pecaProtoTransformer.toDomain(request))
 
         return pecaProtoTransformer.toResponse(pecaEntity)

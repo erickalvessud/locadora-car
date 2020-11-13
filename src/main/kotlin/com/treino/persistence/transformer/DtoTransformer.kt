@@ -1,8 +1,8 @@
 package com.treino.persistence.transformer
 
-interface DtoTransformer<E, D> {
+interface DtoTransformer<ENTITY, DTO> {
 
-    fun toDto(entity: E): D
+    fun toDto(entity: ENTITY): DTO
 
-    fun toDomain(dto: D): E
+    fun toDomain(dto: DTO): ENTITY
 }

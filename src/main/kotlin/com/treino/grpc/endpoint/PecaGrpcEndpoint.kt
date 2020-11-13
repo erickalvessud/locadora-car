@@ -9,7 +9,12 @@ import javax.inject.Singleton
 @Singleton
 class PecaGrpcEndpoint(private val pecaService: PecaService) : PecaServiceGrpcKt.PecaServiceCoroutineImplBase() {
 
-    override suspend fun pecaSave(request: PecaRequest): PecaResponse {
+    override suspend fun save(request: PecaRequest): PecaResponse {
+
+        return pecaService.save(request)
+    }
+
+    override suspend fun update(request: PecaRequest): PecaResponse {
 
         return pecaService.save(request)
     }

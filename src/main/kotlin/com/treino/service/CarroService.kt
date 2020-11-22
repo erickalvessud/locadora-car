@@ -3,7 +3,7 @@ package com.treino.service
 import com.treino.CarroReply
 import com.treino.ConsultaTodosRequest
 import com.treino.ConsultaTodosResponse
-import com.treino.SalvaCarroRequest
+import com.treino.grpc.endpoint.CarroRequest
 import com.treino.persistence.entities.CarroEntity
 import com.treino.persistence.repositories.CarroRepository
 import io.micronaut.data.model.Pageable
@@ -38,7 +38,7 @@ class CarroService (private val carroRepository: CarroRepository){
         return responseBuilder.build()
     }
 
-    fun salvaCarro(request: SalvaCarroRequest): CarroReply {
+    fun salvaCarro(request: CarroRequest): CarroReply {
         val carroSalvo = this.carroRepository.save(CarroEntity(
                 null,
                 modelo = request.modelo,

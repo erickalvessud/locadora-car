@@ -1,4 +1,4 @@
-package com.treino.grpc.endpoint
+package com.treino.grpc.endpoint.domain
 
 import com.treino.SalvaCarroRequest
 import io.micronaut.core.annotation.Introspected
@@ -13,7 +13,7 @@ class CarroRequest(
         val valorDiaria: Double){
 }
 
-fun SalvaCarroRequest.toCarroRequest(): CarroRequest{
+fun SalvaCarroRequest.toCarroRequest(): CarroRequest {
     return CarroRequest(
             this.modelo,
             this.cor,

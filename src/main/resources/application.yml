@@ -26,3 +26,8 @@ flyway:
       clean-schema: false
 
 grpc.server.health.enabled: true
+
+kafka:
+  bootstrap:
+    servers:
+      - localhost:9092

@@ -2,6 +2,7 @@ package com.treino.grpc.endpoint
 
 import com.treino.*
 import com.treino.extensionfunc.validateConstraintViolation
+import com.treino.grpc.endpoint.domain.toCarroRequest
 import com.treino.service.CarroService
 import io.micronaut.validation.validator.Validator
 import javax.inject.Inject

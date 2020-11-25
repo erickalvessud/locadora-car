@@ -3,7 +3,7 @@ package com.treino.service
 import com.treino.CarroReply
 import com.treino.ConsultaTodosRequest
 import com.treino.ConsultaTodosResponse
-import com.treino.grpc.endpoint.CarroRequest
+import com.treino.grpc.endpoint.domain.CarroRequest
 import com.treino.persistence.entities.CarroEntity
 import com.treino.persistence.repositories.CarroRepository
 import io.micronaut.data.model.Pageable

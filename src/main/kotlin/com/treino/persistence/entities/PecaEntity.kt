@@ -9,13 +9,13 @@ import javax.persistence.*
 @Table(name = "pecas")
 data class PecaEntity(
         @Column(name = "descricao", length = 100)
-        var descricao: String?,
+        var descricao: String,
 
         @Column(name = "valor")
         var valor: Double
 ) {
 
-    constructor() : this(null, 0.0)
+    constructor() : this("", 0.0)
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

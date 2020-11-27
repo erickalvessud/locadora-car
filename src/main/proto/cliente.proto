@@ -1,0 +1,54 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.treino";
+option objc_class_prefix = "HLW";
+option java_outer_classname = "Cliente";
+
+package com.treino;
+
+import "google/api/annotations.proto";
+
+service ClienteService {
+
+  rpc List(ClienteRequest) returns (ClienteResponse) {
+    option (google.api.http) = {
+      get: "/clientes"
+      body: "*"
+    };
+  }
+
+  rpc Save(ClienteRequest) returns (ClienteResponse) {
+    option (google.api.http) = {
+      post: "/clientes"
+      body: "*"
+    };
+  }
+
+  rpc Update(ClienteRequest) returns (ClienteResponse) {
+    option (google.api.http) = {
+      put: "/clientes/{id}"
+      body: "*"
+    };
+  }
+
+}
+
+message ClienteRequest {
+  int64 id = 1;
+  string nome = 2;
+  string email = 3;
+  string telefone = 4;
+  string usuario = 5;
+  string senha = 6;
+}
+
+message ClienteResponse {
+  int64 id = 1;
+  string nome = 2;
+  string email = 3;
+  string telefone = 4;
+  string usuario = 5;
+  string createdAt = 6;
+  string updatedAt = 7;
+}

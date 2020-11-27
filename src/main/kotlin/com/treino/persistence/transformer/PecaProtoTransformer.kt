@@ -3,6 +3,7 @@ package com.treino.persistence.transformer
 import com.treino.PecaRequest
 import com.treino.PecaResponse
 import com.treino.persistence.entities.PecaEntity
+import com.treino.persistence.transformer.interfaces.ProtoTransformer
 import javax.inject.Singleton
 
 @Singleton

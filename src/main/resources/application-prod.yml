@@ -2,11 +2,20 @@ micronaut:
   server:
     port: 8080
 
+tracing:
+  jaeger:
+    enabled: true
+    sender:
+      agentHost: localhost
+      agentPort: 6831
+    sampler:
+      probability: 1
+
 datasources:
   default:
     driverClassName: com.mysql.cj.jdbc.Driver
     dialect: org.hibernate.dialect.MySQL57Dialect
-    url: jdbc:mysql://localhost:3306/unisoftsso?autoReconnect=true&useSSL=false
+    url: jdbc:mysql://localhost:3306/locadora?createDatabaseIfNotExist=true&autoReconnect=true&useSSL=false
     username: root
     password: mk2lm002
 

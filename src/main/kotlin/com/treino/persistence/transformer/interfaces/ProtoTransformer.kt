@@ -1,4 +1,4 @@
-package com.treino.persistence.transformer
+package com.treino.persistence.transformer.interfaces
 
 interface ProtoTransformer<DOMAIN, REQUEST, RESPONSE> {
 

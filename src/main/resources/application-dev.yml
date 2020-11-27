@@ -2,6 +2,15 @@ micronaut:
   server:
     port: 8081
 
+tracing:
+  jaeger:
+    enabled: true
+    sender:
+      agentHost: localhost
+      agentPort: 6831
+    sampler:
+      probability: 1
+
 datasources:
   default:
     driverClassName: com.mysql.cj.jdbc.Driver

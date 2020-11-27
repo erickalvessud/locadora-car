@@ -10,7 +10,7 @@ class PecaDto(
         @JsonProperty("id")
         var id: Long?,
         @JsonProperty("descricao")
-        var descricao: String?,
+        var descricao: String,
         @JsonProperty("valor")
         var valor: Double,
         @JsonProperty("createdAt")
@@ -18,5 +18,6 @@ class PecaDto(
         @JsonProperty("updatedAt")
         var updatedAt: LocalDateTime?
 ) {
-    constructor(descricao: String?, valor: Double) : this(null, null, 0.0, null, null)
+    constructor() : this(null, "", .0, null, null)
+    constructor(descricao: String, valor: Double) : this(null, descricao, valor, null, null)
 }
